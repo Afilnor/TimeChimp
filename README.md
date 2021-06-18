@@ -29,7 +29,7 @@ response = timechimp.api.users.get_all()
 ```
 import timechimp
 
-response = timechimp.api.users.get_all(to_json=True)
+users = timechimp.api.users.get_all(to_json=True)
 ```
 - When setting to_json to True, will automatically raise an error if an error key is detected.
 - So you don't have to worry about this in your application.

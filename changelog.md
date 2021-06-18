@@ -1,2 +1,5 @@
+## 0.0.2 (June 2021)
+- update doc, test deployment workflow
+
 ## 0.0.1 (June 2021)
 - First release of the package
