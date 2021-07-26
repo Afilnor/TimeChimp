@@ -14,12 +14,12 @@ def get_by_project(project_id: int,
                                                      List[dict]]:
     """Get a invoice entry by project
 
-    :args
+    Args:
         project_id: the unique id of the project
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp invoice requests response object
     """
     return make_request(
@@ -36,12 +36,12 @@ def get_by_id(invoice_id: int,
                                                 dict]:
     """Get a invoice entry by id
 
-    :args
+    Args:
         invoice_id: the unique id of the invoice entry
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp invoice requests response object
     """
     return make_request(
@@ -57,12 +57,12 @@ def get_all(version: str = DEFAULT_VERSION,
                                             List[dict]]:
     """Get all the invoice entries
 
-    :args
+    Args:
         version: the version of the endpoint to use
         params: the query string parameters
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp invoice requests response object
     """
     return make_request(

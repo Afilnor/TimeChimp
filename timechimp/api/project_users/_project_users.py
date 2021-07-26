@@ -14,12 +14,12 @@ def get_all(version: str = DEFAULT_VERSION,
                                             List[dict]]:
     """Get all project users
 
-    :args
+    Args:
         version: the version of the endpoint to use
         params: the query parameters
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project users requests response object
     """
     return make_request(
@@ -35,12 +35,12 @@ def get_by_id(project_user_id: int,
                                               dict]:
     """Get a project user by id
 
-    :args
+    Args:
         version: the version of the endpoint to use
         project_user_id: the unique id of the project user
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project users requests response object
     """
     return make_request(
@@ -57,12 +57,12 @@ def get_by_project(
                                         List[dict]]:
     """Get the project users by project
 
-    :args
+    Args:
         version: the version of the endpoint to use
         project_id: the unique id of the project
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project users requests response object
     """
     return make_request(
@@ -80,12 +80,12 @@ def get_by_user(
                                         List[dict]]:
     """Get the project users by user
 
-    :args
+    Args:
         version: the version of the endpoint to use
         user_id: the unique id of the user
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project users requests response object
     """
     return make_request(
@@ -102,12 +102,12 @@ def update(project_user: dict,
                                            dict]:
     """Import project users from TimeChimp
 
-    :args
+    Args:
         version: the version of the endpoint to use
         project_user: the dict containing the new project users properties values
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project users requests response object
     """
     return make_request(
@@ -123,12 +123,12 @@ def create(project_user: dict,
                                            dict]:
     """Create a new project user entry
 
-    :args
+    Args:
         project_user: the JSON representation of the project user entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project user requests response object
     """
     return make_request(
@@ -144,12 +144,12 @@ def delete(project_user_id: int,
                                            dict]:
     """Delete a project user entry by id
 
-    :args
+    Args:
         project_user_id: the JSON representation of the project user entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project user requests response object
     """
     return make_request(

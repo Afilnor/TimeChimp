@@ -13,11 +13,11 @@ def get_all(version: str = DEFAULT_VERSION,
                                             List[dict]]:
     """Get all tasks
 
-    :args
+    Args:
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp tasks requests response object
     """
     return make_request(
@@ -32,12 +32,12 @@ def get_by_id(task_id: int,
                                               dict]:
     """Get a task by id
 
-    :args
+    Args:
         version: the version of the endpoint to use
         task_id: the unique id of the task
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp tasks requests response object
     """
     return make_request(
@@ -53,12 +53,12 @@ def update(task: dict,
                                            dict]:
     """Update a task
 
-    :args
+    Args:
         version: the version of the endpoint to use
         task: the dict containing the new tasks properties values
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp tasks requests response object
     """
     return make_request(
@@ -74,12 +74,12 @@ def create(task: dict,
                                            dict]:
     """Create a new task entry
 
-    :args
+    Args:
         task: the JSON representation of the task entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp task requests response object
     """
     return make_request(
@@ -95,12 +95,12 @@ def delete(task_id: int,
                                            dict]:
     """Delete a task entry by id
 
-    :args
+    Args:
         task_id: the JSON representation of the task entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp task requests response object
     """
     return make_request(

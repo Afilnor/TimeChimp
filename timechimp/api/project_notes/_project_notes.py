@@ -14,12 +14,12 @@ def get_all(version: str = DEFAULT_VERSION,
                                             List[dict]]:
     """Get all project notes
 
-    :args
+    Args:
         version: the version of the endpoint to use
         params: the query parameters
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project notes requests response object
     """
     return make_request(
@@ -35,12 +35,12 @@ def get_by_id(project_note_id: int,
                                               dict]:
     """Get a project note by id
 
-    :args
+    Args:
         version: the version of the endpoint to use
         project_note_id: the unique id of the project note
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project notes requests response object
     """
     return make_request(
@@ -57,12 +57,12 @@ def get_by_project(
                                         List[dict]]:
     """Get the project notes by project
 
-    :args
+    Args:
         version: the version of the endpoint to use
         project_id: the unique id of the project
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project notes requests response object
     """
     return make_request(
@@ -79,12 +79,12 @@ def update(project_note: dict,
                                            dict]:
     """Import project notes from TimeChimp
 
-    :args
+    Args:
         version: the version of the endpoint to use
         project_note: the dict containing the new project notes properties values
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project notes requests response object
     """
     return make_request(
@@ -100,12 +100,12 @@ def create(project_note: dict,
                                            dict]:
     """Create a new project note entry
 
-    :args
+    Args:
         project_note: the JSON representation of the project note entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project note requests response object
     """
     return make_request(
@@ -121,12 +121,12 @@ def delete(project_note_id: int,
                                            dict]:
     """Delete a project note entry by id
 
-    :args
+    Args:
         project_note_id: the JSON representation of the project note entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project note requests response object
     """
     return make_request(

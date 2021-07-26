@@ -14,12 +14,12 @@ def get_all(version: str = DEFAULT_VERSION,
                                             List[dict]]:
     """Get all the user contracts
 
-    :args
+    Args:
         version: the version of the endpoint to use
         params: the query string parameters
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp user contracts requests response object
     """
     return make_request(
@@ -35,13 +35,13 @@ def get_by_id(user_contract_id: int,
                                               dict]:
     """Get a user contract by id
 
-    :args
+    Args:
         user_contract_id: the unique id of the user contract
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
         **kwargs: extra parameters for requests.get
 
-    :returns
+    Returns:
         TimeChimp user contracts requests response object
     """
     return make_request(
@@ -57,13 +57,13 @@ def get_by_user(user_id: int,
                                                    List[dict]]:
     """Get user contracts by user
 
-    :args
+    Args:
         user_id: the unique id of the user
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
         **kwargs: extra parameters for requests.get
 
-    :returns
+    Returns:
         TimeChimp user contracts requests response object
     """
     return make_request(
@@ -80,12 +80,12 @@ def create(user_contract: dict,
                                            dict]:
     """Create a user contract
 
-    :args
+    Args:
         user_contracts: the json representation of the user contract
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp user contracts requests response object
     """
     return make_request(
@@ -101,12 +101,12 @@ def update(user_contract: dict,
                                            dict]:
     """Update a user contract
 
-    :args
+    Args:
         user_contracts: the json representation of the user contract
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp user contracts requests response object
     """
     return make_request(
@@ -121,13 +121,13 @@ def delete(user_contract_id: int,
            to_json: bool = False) -> Union[requests.models.Response, dict]:
     """Delete a user contract
 
-    :args
+    Args:
         user_contract_id: the unique id of the user
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
         **kwargs: extra parameters for requests.get
 
-    :returns
+    Returns:
         TimeChimp user contracts requests response object
     """
     return make_request(

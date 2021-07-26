@@ -13,11 +13,11 @@ def get_all(version: str = DEFAULT_VERSION,
                                             List[dict]]:
     """Get all tags
 
-    :args
+    Args:
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp tags requests response object
     """
     return make_request(
@@ -32,12 +32,12 @@ def get_by_id(tag_id: int,
                                               dict]:
     """Get a tag by id
 
-    :args
+    Args:
         version: the version of the endpoint to use
         tag_id: the unique id of the tag
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp tags requests response object
     """
     return make_request(
@@ -53,12 +53,12 @@ def update(tag: dict,
                                            dict]:
     """Update a tag
 
-    :args
+    Args:
         version: the version of the endpoint to use
         tag: the dict containing the new tags properties values
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp tags requests response object
     """
     return make_request(
@@ -74,12 +74,12 @@ def create(tag: dict,
                                            dict]:
     """Create a new tag entry
 
-    :args
+    Args:
         tag: the JSON representation of the tag entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp tag requests response object
     """
     return make_request(
@@ -95,12 +95,12 @@ def delete(tag_id: int,
                                            dict]:
     """Delete a tag entry by id
 
-    :args
+    Args:
         tag_id: the JSON representation of the tag entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp tag requests response object
     """
     return make_request(

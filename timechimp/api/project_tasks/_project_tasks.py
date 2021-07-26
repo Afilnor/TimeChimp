@@ -14,12 +14,12 @@ def get_all(version: str = DEFAULT_VERSION,
                                             List[dict]]:
     """Get all project tasks
 
-    :args
+    Args:
         version: the version of the endpoint to use
         params: the query parameters
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project tasks requests response object
     """
     return make_request(
@@ -35,12 +35,12 @@ def get_by_id(project_task_id: int,
                                               dict]:
     """Get a project task by id
 
-    :args
+    Args:
         version: the version of the endpoint to use
         project_task_id: the unique id of the project task
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project tasks requests response object
     """
     return make_request(
@@ -57,12 +57,12 @@ def get_by_project(
                                         List[dict]]:
     """Get the project tasks by project
 
-    :args
+    Args:
         version: the version of the endpoint to use
         project_id: the unique id of the project
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project tasks requests response object
     """
     return make_request(
@@ -80,12 +80,12 @@ def get_by_task(
                                         List[dict]]:
     """Get the project tasks by task
 
-    :args
+    Args:
         version: the version of the endpoint to use
         task_id: the unique id of the task
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project tasks requests response object
     """
     return make_request(
@@ -102,12 +102,12 @@ def update(project_task: dict,
                                            dict]:
     """Import project tasks from TimeChimp
 
-    :args
+    Args:
         version: the version of the endpoint to use
         project_task: the dict containing the new project tasks properties values
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project tasks requests response object
     """
     return make_request(
@@ -123,12 +123,12 @@ def create(project_task: dict,
                                            dict]:
     """Create a new project task entry
 
-    :args
+    Args:
         project_task: the JSON representation of the project task entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project task requests response object
     """
     return make_request(
@@ -144,12 +144,12 @@ def delete(project_task_id: int,
                                            dict]:
     """Delete a project task entry by id
 
-    :args
+    Args:
         project_task_id: the JSON representation of the project task entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp project task requests response object
     """
     return make_request(

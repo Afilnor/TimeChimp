@@ -18,10 +18,10 @@ def kwargs_to_string(**kwargs) -> str:
     """Beautify string representation of **kwargs
     Hide the TimeChimp access token
 
-    :args
+    Args:
         **kwargs: extra args for the request method
 
-    :returns
+    Returns:
         A string representation of **kwargs
     """
     kwargs_copy = copy.deepcopy(kwargs)
@@ -47,13 +47,13 @@ def make_request(
                            list, dict]:
     """ Dispatch a request for the given url, method and arguments
 
-    :args
+    Args:
         url: the request url
         to_json: whether to return the response as json
         request_method: the request method
         **kwargs: extra args for the request method
 
-    :returns
+    Returns:
         The request response
     """
     kwargs["headers"] = {"Authorization": f"Bearer {os.environ[_ENV_ACCESS_TOKEN_VAR]}"}

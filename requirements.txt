@@ -1,2 +1,4 @@
 pytest
 requests
+sphinx
+sphinx-rtd-theme

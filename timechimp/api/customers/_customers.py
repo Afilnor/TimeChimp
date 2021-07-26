@@ -14,12 +14,12 @@ def get_by_id(customer_id: int,
                                               dict]:
     """Get a customer entry by id
 
-    :args
+    Args:
         customer_id: the unique id of the customer entry
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp customer requests response object
     """
     return make_request(
@@ -36,12 +36,12 @@ def get_by_name(
                                         dict]:
     """Get a customer entry by id
 
-    :args
+    Args:
         customer_name: the unique name of the customer entry
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp customer requests response object
     """
     return make_request(
@@ -59,12 +59,12 @@ def get_by_relation(
                                         List[dict]]:
     """Get a customer entry by id
 
-    :args
+    Args:
         relation_id: the unique id of the relation entry
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp customer requests response object
     """
     return make_request(
@@ -81,12 +81,12 @@ def get_all(version: str = DEFAULT_VERSION,
                                             List[dict]]:
     """Get all the customer entries
 
-    :args
+    Args:
         version: the version of the endpoint to use
         params: the query string parameters
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp customer requests response object
     """
     return make_request(
@@ -102,12 +102,12 @@ def update(customer: dict,
                                            dict]:
     """Update a customer entry
 
-    :args
+    Args:
         customer: the JSON representation of the customer entry to update
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp customer requests response object
     """
     return make_request(
@@ -123,12 +123,12 @@ def create(customer: dict,
                                            dict]:
     """Create a new customer entry
 
-    :args
+    Args:
         customer: the JSON representation of the customer entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp customer requests response object
     """
     return make_request(
@@ -144,12 +144,12 @@ def delete(customer_id: int,
                                            dict]:
     """Delete a customer entry by id
 
-    :args
+    Args:
         customer_id: the JSON representation of the customer entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp customer requests response object
     """
     return make_request(

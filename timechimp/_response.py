@@ -7,7 +7,7 @@ from json.decoder import JSONDecodeError
 
 import requests
 
-from timechimp.exceptions import APIError
+from timechimp.exceptions import TimeChimpAPIError
 
 logger = logging.getLogger(__name__)
 
@@ -15,13 +15,13 @@ logger = logging.getLogger(__name__)
 def check_status(response: requests.models.Response) -> None:
     """Check the response status
 
-    :args
+    Args:
         response: the request response
 
-    :raises
+    Raises:
         HTTPError depending on the response status code
 
-    :returns
+    Returns:
         None
     """
     if not response.ok:
@@ -33,14 +33,14 @@ def to_json(response: requests.models.Response) -> Union[list, dict]:
     """ Convert a request response to json
     Log the response as text if cannot be decoded to json (useful for debugging)
 
-    :args
+    Args:
         request: the request response to decode
 
-    :raises
+    Raises:
        JSONDecodeError: the response could not be decoded to json
-       APIError: the API returned an error message
+       TimeChimpAPIError: the API returned an error message
 
-    :returns
+    Returns:
         the response converted as a dict or list
     """
     try:
@@ -50,8 +50,8 @@ def to_json(response: requests.models.Response) -> Union[list, dict]:
         raise e
 
     if "message" in response_json:
-        raise APIError(pprint.pformat(response_json,
-                                      indent=4,
-                                      sort_dicts=True))
+        raise TimeChimpAPIError(pprint.pformat(response_json,
+                                               indent=4,
+                                               sort_dicts=True))
 
     return response_json

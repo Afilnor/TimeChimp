@@ -1,7 +1,7 @@
 """Module containing opdatasource custom exceptions"""
 
 
-class APIError(Exception):
+class TimeChimpAPIError(Exception):
     """The API returned an error"""
     def __init__(self, message):
         self.message = message

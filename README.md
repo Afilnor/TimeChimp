@@ -9,6 +9,10 @@
 ## How to install
 `pip3 install timechimp`
 
+## Documentation
+
+https://timechimp.readthedocs.io/en/latest/
+
 ## Source structure
 - _endpoint.py: contain the source endpoints.
 - _env_variables.py: env variables names holding the auth value (eg API token).
@@ -31,9 +35,6 @@ import timechimp
 
 users = timechimp.api.users.get_all(to_json=True)
 ```
-- When setting to_json to True, will automatically raise an error if an error key is detected.
-- So you don't have to worry about this in your application.
-
 
 ## Test
 `pytest`

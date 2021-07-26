@@ -17,16 +17,16 @@ def get_by_date_range(date_from: str,
                                                       List[dict]]:
     """Get time entries by date range
 
-    :args
+    Args:
         date_from: inclusive date as YYYY-MM-DD
         date_to: inclusive date as YYYY-MM-DD
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
 
-    :raises
+    Raises:
         ValueError, date_from cannot occur later than date_to
     """
     if datetime.strptime(date_from, "%Y-%m-%d") > datetime.strptime(date_to, "%Y-%m-%d"):
@@ -47,12 +47,12 @@ def get_by_project(project_id: int,
                                                      List[dict]]:
     """Get a time entry by project
 
-    :args
+    Args:
         project_id: the unique id of the project
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(
@@ -72,17 +72,17 @@ def get_by_project_by_timerange(
                                         List[dict]]:
     """Get time entries by project and by time range
 
-    :args
+    Args:
         project_id: the unique id of the project
         date_from: inclusive date as YYYY-MM-DD
         date_to: inclusive date as YYYY-MM-DD
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
 
-    :raises
+    Raises:
         ValueError, date_from cannot occur later than date_to
     """
     if datetime.strptime(date_from, "%Y-%m-%d") > datetime.strptime(date_to, "%Y-%m-%d"):
@@ -104,12 +104,12 @@ def get_by_id(time_id: int,
                                                 dict]:
     """Get a time entry by id
 
-    :args
+    Args:
         time_id: the unique id of the time entry
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(
@@ -124,11 +124,11 @@ def get_all(version: str = DEFAULT_VERSION,
                                             List[dict]]:
     """Get all the time entries
 
-    :args
+    Args:
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(
@@ -143,12 +143,12 @@ def update(time: dict,
                                            dict]:
     """Update a time entry
 
-    :args
+    Args:
         time: the JSON representation of the time entry to update
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(
@@ -164,12 +164,12 @@ def create(time: dict,
                                            dict]:
     """Create a new time entry
 
-    :args
+    Args:
         time: the JSON representation of the time entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(
@@ -185,12 +185,12 @@ def delete(time_id: int,
                                            dict]:
     """Delete a time entry by id
 
-    :args
+    Args:
         time_id: the JSON representation of the time entry to create
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(
@@ -208,13 +208,13 @@ def submit_for_approval_internal(
                                     dict]:
     """Submit registration ids for internal approval
 
-    :args
+    Args:
         registration_ids: the list of registration ids
         message: the message the current submission
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(
@@ -237,14 +237,14 @@ def change_status_internal(
                                     dict]:
     """Change the internal submitted registration ids approval status
 
-    :args
+    Args:
         registration_ids: the list of registration ids
         approval_status: ApprovalStatus.APPROVED or ApprovalStatus.REJECTED
         message: the message the current submission
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(
@@ -268,14 +268,14 @@ def submit_for_approval_external(
                                     dict]:
     """Submit registration ids for internal approval
 
-    :args
+    Args:
         registration_ids: the list of registration ids
         contact_person_emails: a list of contact emails
         message: the message the current submission
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(
@@ -300,7 +300,7 @@ def change_status_external(
                                     dict]:
     """Change the external submitted registration ids approval status
 
-    :args
+    Args:
         registration_ids: the list of registration ids
         approval_status: ApprovalStatus.APPROVED or ApprovalStatus.REJECTED
         message: the message the current submission
@@ -308,7 +308,7 @@ def change_status_external(
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(
@@ -331,12 +331,12 @@ def start_timer(
                                     str]:
     """Start a new timer
 
-    :args
+    Args:
         timer_id: the id of the started timer
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(
@@ -354,12 +354,12 @@ def stop_timer(
                                     int]:
     """Stop a timer to to get the number of elapsed hours
 
-    :args
+    Args:
         timer_id: the id of the timer to stop
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(
@@ -377,12 +377,12 @@ def get_status_history(
                                      dict]:
     """Get a time entry's status history
 
-    :args
+    Args:
         time_id: the unique id of the time entry
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp time requests response object
     """
     return make_request(

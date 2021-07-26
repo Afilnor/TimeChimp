@@ -13,11 +13,11 @@ def get_all(version: str = DEFAULT_VERSION,
                                             List[dict]]:
     """Get all the users
 
-    :args
+    Args:
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp users requests response object
     """
     return make_request(
@@ -32,12 +32,12 @@ def get_by_id(user_id: int,
                                               dict]:
     """Get a user by id
 
-    :args
+    Args:
         user_id: the unique id of the user
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp users requests response object
     """
     return make_request(
@@ -53,12 +53,12 @@ def update(user: dict,
                                            dict]:
     """Update a user
 
-    :args
+    Args:
         user: the dict containing the new users properties values
         version: the version of the endpoint to use
         to_json: convert the request response to a json object
 
-    :returns
+    Returns:
         TimeChimp users requests response object
     """
     return make_request(
