@@ -1,3 +1,6 @@
+## 0.0.4 (July 2021)
+- sphinx custom css
+
 ## 0.0.3 (July 2021)
 - include sphinx documentation
 
