@@ -1,6 +1,6 @@
 # TimeChimp
-![Run tests and upload to pypi](https://github.com/Afilnor/TimeChimp/actions/workflows/python-publish.yml/badge.svg)
-
+![Build](https://github.com/Afilnor/TimeChimp/actions/workflows/python-publish.yml/badge.svg)
+![License](https://img.shields.io/github/license/Afilnor/TimeChimp)
 ## Description
 - SDK to interact with TimeChimp API
 - Can return a converted response to JSON and check for errors.
