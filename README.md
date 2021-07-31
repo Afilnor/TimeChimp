@@ -1,4 +1,5 @@
 # TimeChimp
+![Run tests and upload to pypi](https://github.com/Afilnor/TimeChimp/actions/workflows/python-publish.yml/badge.svg)
 
 ## Description
 - SDK to interact with TimeChimp API
