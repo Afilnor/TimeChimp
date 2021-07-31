@@ -5,6 +5,7 @@
 ![License](https://img.shields.io/github/license/Afilnor/TimeChimp)
 [![PyPI version](https://badge.fury.io/py/timechimp.svg)](https://badge.fury.io/py/timechimp)
 [![Downloads](https://pepy.tech/badge/timechimp)](https://pepy.tech/project/timechimp)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ## Description
 - SDK to interact with TimeChimp API
