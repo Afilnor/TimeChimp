@@ -1,3 +1,6 @@
+## 0.0.8 (July 2021)
+- update coverage in deploy pipeline
+
 ## 0.0.7 (July 2021)
 - pytest-cov in requirements
 
