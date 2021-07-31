@@ -17,7 +17,8 @@ setup(
     description='TimeChimp API Python SDK',
     download_url='https://github.com/Afilnor/TimeChimp/archive/refs/heads/master.zip',
     install_requires=[
-        "pytest"
+        "pytest",
+        "pytest-cov",
         "requests",
         "sphinx",
         "sphinx-rtd-theme"

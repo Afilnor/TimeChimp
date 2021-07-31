@@ -1,3 +1,6 @@
+## 0.0.7 (July 2021)
+- pytest-cov in requirements
+
 ## 0.0.6 (July 2021)
 - coverage badge
 
