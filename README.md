@@ -2,6 +2,9 @@
 ![Build](https://github.com/Afilnor/TimeChimp/actions/workflows/python-publish.yml/badge.svg)
 [![codecov](https://codecov.io/gh/Afilnor/TimeChimp/branch/master/graph/badge.svg?token=O2VKP0JNH7)](https://codecov.io/gh/Afilnor/TimeChimp)
 ![License](https://img.shields.io/github/license/Afilnor/TimeChimp)
+[![PyPI version](https://badge.fury.io/py/timechimp.svg)](https://badge.fury.io/py/timechimp)
+[![Downloads](https://pepy.tech/badge/timechimp)](https://pepy.tech/project/timechimp)
+
 ## Description
 - SDK to interact with TimeChimp API
 - Can return a converted response to JSON and check for errors.

@@ -1,3 +1,6 @@
+## 0.0.10 (July 2021)
+- download and pypi version badges
+
 ## 0.0.9 (July 2021)
 - code cov, don't fail pipeline if codecov error
 
