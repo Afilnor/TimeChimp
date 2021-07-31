@@ -32,7 +32,7 @@ jobs:
     - name: Upload coverage
       uses: codecov/codecov-action@v2
       with:
-        fail_ci_if_error: true # optional (default = false)
+        fail_ci_if_error: false # optional (default = false)
     - name: Build and publish
       env:
         TWINE_USERNAME: '__token__'

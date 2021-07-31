@@ -1,3 +1,6 @@
+## 0.0.9 (July 2021)
+- code cov, don't fail pipeline if codecov error
+
 ## 0.0.8 (July 2021)
 - update coverage in deploy pipeline
 
