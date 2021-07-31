@@ -1,3 +1,6 @@
+## 0.0.11 (July 2021)
+- doc badge
+
 ## 0.0.10 (July 2021)
 - download and pypi version badges
 
