@@ -1,5 +1,6 @@
 # TimeChimp
 ![Build](https://github.com/Afilnor/TimeChimp/actions/workflows/python-publish.yml/badge.svg)
+[![codecov](https://codecov.io/gh/Afilnor/TimeChimp/branch/master/graph/badge.svg?token=O2VKP0JNH7)](https://codecov.io/gh/Afilnor/TimeChimp)
 ![License](https://img.shields.io/github/license/Afilnor/TimeChimp)
 ## Description
 - SDK to interact with TimeChimp API

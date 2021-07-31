@@ -1,3 +1,6 @@
+## 0.0.6 (July 2021)
+- coverage badge
+
 ## 0.0.5 (July 2021)
 - Build and license badge on github
 
