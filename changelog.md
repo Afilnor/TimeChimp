@@ -1,3 +1,6 @@
+## 0.0.5 (July 2021)
+- Build and license badge on github
+
 ## 0.0.4 (July 2021)
 - sphinx custom css
 
