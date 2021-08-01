@@ -1,5 +1,5 @@
 # TimeChimp
-![Build](https://github.com/Afilnor/TimeChimp/actions/workflows/python-publish.yml/badge.svg)
+![Build](https://github.com/Afilnor/TimeChimp/actions/workflows/build_master.yml/badge.svg)
 ![Doc](https://readthedocs.org/projects/timechimp/badge/)
 [![codecov](https://codecov.io/gh/Afilnor/TimeChimp/branch/master/graph/badge.svg?token=O2VKP0JNH7)](https://codecov.io/gh/Afilnor/TimeChimp)
 ![License](https://img.shields.io/github/license/Afilnor/TimeChimp)
