@@ -1,3 +1,6 @@
+## 0.0.15 (August 2021)
+- update coverage and build workflow
+
 ## 0.0.14 (August 2021)
 - include build in requirements
 

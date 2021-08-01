@@ -1,4 +1,4 @@
 build
+coverage
 pytest
-pytest-cov
 requests

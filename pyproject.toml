@@ -11,3 +11,6 @@ log_cli_date_format= "%Y-%m-%d %H:%M:%S"
 [tool.coverage.run]
 include = ["timechimp/*"]
 omit = ["*__init__.py*"]
+
+[tool.coverage.xml]
+output = "coverage.xml"
