@@ -31,7 +31,7 @@ jobs:
       run: pytest
 
     - name: Coverage
-      run: coverage
+      run: coverage xml
 
     - name: Upload coverage
       uses: codecov/codecov-action@v2
@@ -43,5 +43,6 @@ jobs:
         TWINE_USERNAME: '__token__'
         TWINE_PASSWORD: ${{ secrets.PYPI_TIMECHIMP_TOKEN }}
       run: |
-        python3 -m build
+        pip install -r requirements.txt
+        python -m build
         twine upload dist/*
