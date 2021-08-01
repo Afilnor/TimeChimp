@@ -28,10 +28,11 @@ jobs:
     - name: Test
       env:
         TIMECHIMP_ACCESS_TOKEN: ${{ secrets.TIMECHIMP_ACCESS_TOKEN }}
-      run: pytest
+      run: coverage run -m pytest
 
-    - name: Coverage
-      run: coverage xml
+    - name: Generate xml coverage
+      run: |
+        coverage xml
 
     - name: Upload coverage
       uses: codecov/codecov-action@v2
