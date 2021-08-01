@@ -29,7 +29,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     name='timechimp',
-    packages=find_packages(exclude=("tests", "docs")),
+    packages=find_packages(exclude=("tests.*", "tests", "*.egg-info", "build", "doc")),
     platforms=['any'],
     python_requires='>=3.6',
     url='https://github.com/Afilnor/TimeChimp',

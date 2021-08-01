@@ -43,5 +43,5 @@ jobs:
         TWINE_USERNAME: '__token__'
         TWINE_PASSWORD: ${{ secrets.PYPI_TIMECHIMP_TOKEN }}
       run: |
-        python -m build
+        python setup.py sdist
         twine upload dist/*
