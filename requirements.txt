@@ -1,5 +1,3 @@
 pytest
 pytest-cov
 requests
-sphinx
-sphinx-rtd-theme

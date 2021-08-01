@@ -1,5 +1,8 @@
+## 0.0.13 (August 2021)
+- update packaging + pyproject.toml
+
 ## 0.0.12 (July 2021)
-2 black badge
+- 2 black badge
 
 ## 0.0.11 (July 2021)
 - doc badge

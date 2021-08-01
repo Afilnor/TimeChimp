@@ -28,7 +28,7 @@ jobs:
       env:
         TIMECHIMP_ACCESS_TOKEN: ${{ secrets.TIMECHIMP_ACCESS_TOKEN }}
       run: |
-        pytest --cov=timechimp/ --cov-report=xml
+        pytest --cov-report=xml
     - name: Upload coverage
       uses: codecov/codecov-action@v2
       with:
@@ -38,5 +38,5 @@ jobs:
         TWINE_USERNAME: '__token__'
         TWINE_PASSWORD: ${{ secrets.PYPI_TIMECHIMP_TOKEN }}
       run: |
-        python setup.py sdist bdist_wheel
+        python -m build
         twine upload dist/*

@@ -21,9 +21,7 @@
 https://timechimp.readthedocs.io/en/latest/
 
 ## Source structure
-- _endpoint.py: contain the source endpoints.
-- _env_variables.py: env variables names holding the auth value (eg API token).
-- api sub-package contains the functions to call
+- TimeChimp endpoints are defined in `timechimp.api`
 
 ## How to use
 
