@@ -1,15 +1,18 @@
 from setuptools import setup, find_packages
+from os import path
 import sys
 
-sys.path.insert(0, '.')
+sys.path.insert(0, ".")
 from timechimp._version import __version__
+
+this_directory = path.abspath(path.dirname(__file__))
 
 REQUIREMENTS = [
     line.strip().split()[0]
-    for line in open("requirements.txt").readlines()
+    for line in open(path.join(this_directory, "requirements.txt")).readlines()
 ]
 
-with open('README.md', encoding='utf-8') as f:
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
