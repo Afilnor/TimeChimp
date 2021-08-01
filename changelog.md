@@ -1,3 +1,6 @@
+## 0.0.16 (August 2021)
+- more tests and new custom exceptions
+
 ## 0.0.15 (August 2021)
 - update coverage and build workflow
 

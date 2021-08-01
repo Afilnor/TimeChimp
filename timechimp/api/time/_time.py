@@ -6,6 +6,7 @@ from typing import Union, List
 import requests
 
 from timechimp.enum import ApprovalStatus
+from timechimp.exceptions import TimeChimpDateRangeError
 from timechimp._request import make_request
 from timechimp._endpoint import TIME_ENDPOINT, DEFAULT_VERSION
 
@@ -30,7 +31,7 @@ def get_by_date_range(date_from: str,
         ValueError, date_from cannot occur later than date_to
     """
     if datetime.strptime(date_from, "%Y-%m-%d") > datetime.strptime(date_to, "%Y-%m-%d"):
-        raise ValueError(f"date_from={date_from} cannot occur later than date_to={date_to}")
+        raise TimeChimpDateRangeError(f"date_from={date_from} cannot occur later than date_to={date_to}")
 
     return make_request(
         url="/".join([TIME_ENDPOINT.format(version=version),

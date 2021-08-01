@@ -1,5 +1,8 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import logging
+
+import pytest
+import requests.models
 
 import timechimp
 
@@ -12,8 +15,21 @@ class TestGetByTimeRange:
             date_to=datetime.now().strftime("%Y-%m-%d"),
             to_json=True)
 
+    response = timechimp.api.time.get_by_date_range(
+            date_from=datetime.now().strftime("%Y-%m-%d"),
+            date_to=datetime.now().strftime("%Y-%m-%d"))
+
     def test_is_list(self):
         assert(isinstance(TestGetByTimeRange.times, list))
+
+    def test_is_request_response_instance(self):
+        assert (isinstance(TestGetByTimeRange.response, requests.models.Response))
+
+    def test_is_date_range_exception(self):
+        with pytest.raises(timechimp.exceptions.TimeChimpDateRangeError):
+            timechimp.api.time.get_by_date_range(
+                date_from=datetime.now().strftime("%Y-%m-%d"),
+                date_to=(datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d"))
 
 
 class TestGetAll:
@@ -30,3 +46,9 @@ class TestGetById:
 
     def test_is_dict(self):
         assert(isinstance(TestGetById.time, dict))
+
+    def test_is_api_exception(self):
+        with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
+            timechimp.api.time.delete(
+                time_id=10,
+                to_json=True)
