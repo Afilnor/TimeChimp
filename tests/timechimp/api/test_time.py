@@ -229,3 +229,13 @@ class TestGetAll:
         assert(isinstance(TestGetAll.times, list))
 
 
+class TestStartTimer:
+    def test_is_api_error(self):
+        with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
+            timechimp.api.time.start_timer(timer_id=123456)
+
+
+class TestStopTimer:
+    def test_is_api_error(self):
+        with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
+            timechimp.api.time.stop_timer(timer_id=123456)
