@@ -1,3 +1,6 @@
+## 0.0.17 (August 2021)
+- added tests for the time endpoint
+
 ## 0.0.16 (August 2021)
 - more tests and new custom exceptions
 
