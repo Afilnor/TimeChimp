@@ -18,7 +18,7 @@ def get_all(version: str = DEFAULT_VERSION,
         version: the version of the endpoint to use
                  "2", get also inactive projects
         params: the query parameters
-        headers: the requests.get headers param to use
+        to_json: convert the request response to a json object
 
     Returns:
         TimeChimp projects requests response object

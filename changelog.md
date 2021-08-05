@@ -1,3 +1,6 @@
+## 0.0.20 (August 2021)
+- test expenses and projects
+
 ## 0.0.19 (August 2021)
 - more tests for time and added mileage
 
