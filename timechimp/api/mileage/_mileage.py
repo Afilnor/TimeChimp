@@ -1,13 +1,13 @@
 """Module interacting with TimeChimp API mileage endpoint"""
 
-from datetime import datetime
 from typing import Union, List
 
 import requests
 
+from timechimp._endpoint import MILEAGE_ENDPOINT, DEFAULT_VERSION
 from timechimp.enum import ApprovalStatus
 from timechimp._request import make_request
-from timechimp._endpoint import MILEAGE_ENDPOINT, DEFAULT_VERSION
+from timechimp._time import check_date_range
 
 
 def get_by_date_range(
@@ -30,8 +30,7 @@ def get_by_date_range(
     Raises:
         ValueError, date_from cannot occur later than date_to
     """
-    if datetime.strptime(date_from, "%Y-%m-%d") > datetime.strptime(date_to, "%Y-%m-%d"):
-        raise ValueError(f"date_from={date_from} cannot occur later than date_to={date_to}")
+    check_date_range(date_from=date_from, date_to=date_to)
 
     return make_request(
         url="/".join([MILEAGE_ENDPOINT.format(version=version),
@@ -174,7 +173,7 @@ def submit_for_approval_internal(
     message: str,
     version: str = DEFAULT_VERSION,
     to_json: bool = False) -> Union[requests.models.Response,
-                                    dict]:
+                                    List[dict]]:
     """Submit registration ids for internal approval
 
     Args:

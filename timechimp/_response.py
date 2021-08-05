@@ -7,7 +7,7 @@ from json.decoder import JSONDecodeError
 
 import requests
 
-from timechimp.exceptions import TimeChimpAPIError, TimeChimpJSONDecodeError
+from timechimp.exceptions import TimeChimpAPIError
 
 logger = logging.getLogger(__name__)
 
@@ -40,7 +40,7 @@ def to_json(response: requests.models.Response) -> Union[list, dict]:
         response: the request response to decode
 
     Raises:
-        TimeChimpJSONDecodeError: the response could not be decoded to json
+        JSONDecodeError: the response could not be decoded to json
         TimeChimpAPIError: the API returned an error message
 
     Returns:
@@ -48,8 +48,9 @@ def to_json(response: requests.models.Response) -> Union[list, dict]:
     """
     try:
         response_json = response.json()
-    except JSONDecodeError:
-        raise TimeChimpJSONDecodeError(f"Error when trying to decode response={response.text}")
+    except JSONDecodeError as e:
+        logger.error(f"Error when trying to decode response={response.text}")
+        raise e
 
     if "message" in response_json:
         raise TimeChimpAPIError(pprint.pformat(response_json,

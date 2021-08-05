@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta
+
 import logging
+import json
 
 import pytest
 import requests.models
@@ -23,7 +25,7 @@ class TestGetById:
 
     def test_is_api_error(self):
         with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
-            timechimp.api.time.get_by_id({})
+            timechimp.api.time.get_by_id(1)
 
     def test_is_dict(self):
         assert(isinstance(TestGetById.time, dict))
@@ -69,6 +71,13 @@ class TestGetByProjectByTimeRange:
     def test_is_same_id(self):
         assert(all(project["projectId"] == TestCreate.time["projectId"]
                    for project in TestGetByProjectByTimeRange.times))
+
+    def test_value_error(self):
+        with pytest.raises(ValueError):
+            timechimp.api.time.get_by_project_by_timerange(
+                project_id=1,
+                date_from=datetime.now().strftime("%Y-%m-%d"),
+                date_to=(datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d"))
 
 
 class TestSubmitForApprovalInternal:
@@ -195,7 +204,7 @@ class TestDelete:
         assert(TestDelete.response.status_code == 200)
 
     def test_is_json_decode_error(self):
-        with pytest.raises(timechimp.exceptions.TimeChimpJSONDecodeError):
+        with pytest.raises(json.decoder.JSONDecodeError):
             timechimp._response.to_json(TestDelete.response)
 
 
@@ -216,7 +225,7 @@ class TestGetByTimeRange:
         assert (isinstance(TestGetByTimeRange.response, requests.models.Response))
 
     def test_is_date_range_exception(self):
-        with pytest.raises(timechimp.exceptions.TimeChimpDateRangeError):
+        with pytest.raises(ValueError):
             timechimp.api.time.get_by_date_range(
                 date_from=datetime.now().strftime("%Y-%m-%d"),
                 date_to=(datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d"))

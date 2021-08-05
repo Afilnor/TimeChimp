@@ -1,3 +1,6 @@
+## 0.0.19 (August 2021)
+- more tests for time and added mileage
+
 ## 0.0.18 (August 2021)
 - added last tests for the time endpoint
 
