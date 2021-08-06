@@ -1,3 +1,6 @@
+## 0.0.22 (August 2021)
+- tests for project tasks endpoints
+
 ## 0.0.21 (August 2021)
 - tests for customers endpoints
 
