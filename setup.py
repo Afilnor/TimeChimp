@@ -1,8 +1,6 @@
 from setuptools import setup, find_packages
 from os import path
-import sys
 
-sys.path.insert(0, ".")
 from timechimp._version import __version__
 
 this_directory = path.abspath(path.dirname(__file__))
