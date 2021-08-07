@@ -1,8 +1,16 @@
 import logging
 
+import pytest
+
 import timechimp
 
 logger = logging.getLogger(__name__)
+
+
+class TestCreate:
+    def test_is_api_error(self):
+        with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
+            timechimp.api.user_contracts.create({}, to_json=True)
 
 
 class TestGetAll:
@@ -15,7 +23,46 @@ class TestGetAll:
 class TestGetById:
     user_contract = timechimp.api.user_contracts.get_by_id(
         user_contract_id=TestGetAll.user_contracts[0]["id"],
-        to_json=True) if TestGetAll.user_contracts else {}
+        to_json=True)
+
+    def test_is_api_error(self):
+        with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
+            timechimp.api.user_contracts.get_by_id(1)
 
     def test_is_dict(self):
-        assert(isinstance(TestGetById.user_contract, dict))
+        assert(isinstance(TestGetAll.user_contracts[0], dict))
+
+    def test_is_same_id(self):
+        assert(TestGetAll.user_contracts[0]["id"] == TestGetById.user_contract["id"])
+
+
+class TestGetByUser:
+    user_contract = timechimp.api.user_contracts.get_by_user(user_id=TestGetById.user_contract["userId"],
+                                                             to_json=True)
+
+    def test_is_list(self):
+        assert(isinstance(TestGetByUser.user_contract, list))
+
+    def test_is_same_id(self):
+        assert(all(user_contract["userId"] == TestGetById.user_contract["userId"]
+                   for user_contract in TestGetByUser.user_contract))
+
+
+class TestUpdate:
+    user_contract = timechimp.api.user_contracts.update(user_contract=TestGetById.user_contract, to_json=True)
+
+    def test_is_api_error(self):
+        with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
+            timechimp.api.user_contracts.update({})
+
+    def test_is_dict(self):
+        assert(isinstance(TestUpdate.user_contract, dict))
+
+    def test_is_same_id(self):
+        assert(TestGetById.user_contract["id"] == TestUpdate.user_contract["id"])
+
+
+class TestDelete:
+    def test_is_api_error(self):
+        with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
+            timechimp.api.user_contracts.delete(user_contract_id=1)

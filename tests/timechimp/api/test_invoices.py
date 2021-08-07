@@ -1,5 +1,7 @@
 import logging
 
+import pytest
+
 import timechimp
 
 logger = logging.getLogger(__name__)
@@ -13,8 +15,41 @@ class TestGetAll:
 
 
 class TestGetById:
-    tag = timechimp.api.invoices.get_by_id(invoice_id=TestGetAll.invoices[0]["id"],
-                                           to_json=True) if TestGetAll.invoices else {}
+    invoice = {}
+    if TestGetAll.invoices:
+        invoice = timechimp.api.invoices.get_by_id(
+            invoice_id=TestGetAll.invoices[0]["id"],
+            to_json=True)
+
+    def test_is_api_error(self):
+        with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
+            timechimp.api.invoices.get_by_id(1)
 
     def test_is_dict(self):
-        assert(isinstance(TestGetById.tag, dict))
+        assert(isinstance(TestGetById.invoice, dict))
+
+    @pytest.mark.skipif(not TestGetAll.invoices,
+                        reason="Require at least an invoice")
+    def test_is_same_id(self):
+        assert(TestGetAll.invoices[0]["id"] == TestGetById.invoice["id"])
+
+
+class TestGetByProject:
+    invoices = []
+    if TestGetById.invoice:
+        invoices = timechimp.api.invoices.get_by_project(
+            project_id=TestGetById["projectId"],
+            to_json=True)
+
+    def test_is_api_error(self):
+        with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
+            timechimp.api.time.get_by_project(project_id=1)
+
+    def test_is_list(self):
+        assert(isinstance(TestGetByProject.invoices, list))
+
+    @pytest.mark.skipif(not TestGetById.invoice,
+                        reason="Require at least an invoice")
+    def test_is_same_id(self):
+        assert(all(project["projectId"] == TestGetById.invoice["projectId"]
+                   for project in TestGetByProject.invoices))
