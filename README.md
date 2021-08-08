@@ -25,7 +25,7 @@ https://timechimp.readthedocs.io/en/latest/
 
 ## How to use
 
-- access token is retrieved through env variables TIMECHIMP_ACCESS_TOKEN
+- access token is retrieved through env variables `TIMECHIMP_ACCESS_TOKEN`
 - [TimeChimp API Documentation](https://api.timechimp.com/)
 
 ### Get the requests response object

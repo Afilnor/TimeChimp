@@ -15,9 +15,11 @@ class TestGetAll:
 
 
 class TestGetById:
-    user = timechimp.api.users.get_by_id(
-        user_id=TestGetAll.users[0]["id"],
-        to_json=True)
+    user = {}
+    if TestGetAll.users:
+        user = timechimp.api.users.get_by_id(
+            user_id=TestGetAll.users[0]["id"],
+            to_json=True)
 
     def test_is_api_error(self):
         with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
@@ -26,24 +28,30 @@ class TestGetById:
     def test_is_dict(self):
         assert(isinstance(TestGetById.user, dict))
 
+    @pytest.mark.skipif(not TestGetAll.users, reason="no users found")
     def test_is_same_id(self):
         assert(TestGetAll.users[0]["id"] == TestGetById.user["id"])
 
 
 class TestUpdate:
-    """ ERROR
-    user = timechimp.api.users.update(user=TestGetById.user, to_json=True)
-    """
     user = {}
+    is_ok_updated_endpoint = True
+    if TestGetById.user:
+        try:
+            user = timechimp.api.users.update(user=TestGetById.user, to_json=True)
+        except timechimp.exceptions.TimeChimpAPIError:
+            logger.error("users.update endpoint is failing")
+            is_ok_updated_endpoint = False
 
     def test_is_api_error(self):
         with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
             timechimp.api.users.update({})
 
-    @pytest.mark.skip(reason="update returns an error")
     def test_is_dict(self):
         assert(isinstance(TestUpdate.user, dict))
 
-    @pytest.mark.skip(reason="update returns an error")
+    @pytest.mark.skipif(not TestGetAll.users, reason="no users found")
     def test_is_same_id(self):
+        if not TestUpdate.is_ok_updated_endpoint:
+            pytest.xfail("update endpoint is failing")
         assert(TestGetById.user["id"] == TestUpdate.user["id"])

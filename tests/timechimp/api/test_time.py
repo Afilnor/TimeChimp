@@ -239,12 +239,19 @@ class TestGetAll:
 
 
 class TestStartTimer:
-    def test_is_api_error(self):
-        with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
-            timechimp.api.time.start_timer(timer_id=123456)
+    timer_id = 123456
+    timer = ""
+    try:
+        timer = timechimp.api.time.start_timer(timer_id=timer_id).text
+    except timechimp.exceptions.TimeChimpAPIError:
+        logger.error("start timer endpoint not working")
+
+    def test_is_not_empty_str(self):
+        if not TestStartTimer.timer:
+            pytest.xfail("start timer endpoint not working")
 
 
 class TestStopTimer:
-    def test_is_api_error(self):
-        with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
-            timechimp.api.time.stop_timer(timer_id=123456)
+    @pytest.mark.skipif(not TestStartTimer.timer, reason="Could not start timer")
+    def test_ok_response_code(self):
+        assert(timechimp.api.time.stop_timer(timer_id=TestStartTimer.timer_id).status_code == 200)

@@ -21,51 +21,74 @@ class TestGetAll:
 
 
 class TestGetById:
-    customer = timechimp.api.customers.get_by_id(
-        customer_id=TestGetAll.customers[0]["id"],
-        to_json=True)
+    customer = {}
+    if TestGetAll.customers:
+        customer = timechimp.api.customers.get_by_id(
+            customer_id=TestGetAll.customers[0]["id"],
+            to_json=True)
 
     def test_is_api_error(self):
         with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
             timechimp.api.customers.get_by_id(1)
 
+    @pytest.mark.skipif(not TestGetAll.customers, reason="no customer found")
+    def test_is_dict(self):
+        assert(isinstance(TestGetById.customer, dict))
+
+    @pytest.mark.skipif(not TestGetAll.customers, reason="no customer found")
     def test_is_same_id(self):
         assert(TestGetAll.customers[0]["id"] == TestUpdate.customer["id"])
 
 
 class TestGetByRelation:
-    customers = timechimp.api.customers.get_by_relation(relation_id=TestGetAll.customers[0]["relationId"],
-                                                        to_json=True)
+    customers = []
+    if TestGetById.customer:
+        customers = timechimp.api.customers.get_by_relation(relation_id=TestGetById.customer["id"],
+                                                            to_json=True)
 
+    @pytest.mark.skipif(not TestGetById.customer, reason="no customer found")
     def test_is_list(self):
         assert(isinstance(TestGetByRelation.customers, list))
 
+    @pytest.mark.skipif(not TestGetById.customer, reason="no customer found")
     def test_is_same_id(self):
         assert(all(customer["relationId"] == TestGetAll.customers[0]["id"]
                    for customer in TestGetByRelation.customers))
 
 
 class TestGetByName:
-    customer = timechimp.api.customers.get_by_name(
-        customer_name=TestGetAll.customers[0]["name"],
-        to_json=True)
+    customers = []
+    if TestGetById.customer:
+        customer = timechimp.api.customers.get_by_name(
+            customer_name=TestGetById.customer["name"],
+            to_json=True)
 
+    @pytest.mark.skipif(not TestGetById.customer, reason="no customer found")
     def test_is_dict(self):
         assert(isinstance(TestGetById.customer, dict))
 
+    @pytest.mark.skipif(not TestGetById.customer, reason="no customer found")
     def test_is_same_id(self):
-        assert(TestGetAll.customers[0]["name"] == TestGetByName.customer["name"])
+        assert(TestGetById.customer["name"] == TestGetByName.customer["name"])
 
 
 class TestUpdate:
-    customer = timechimp.api.customers.update(customer=TestGetAll.customers[0], to_json=True)
+    customers = {}
+    if TestGetById.customer:
+        customer = timechimp.api.customers.update(customer=TestGetById.customer,
+                                                  to_json=True)
 
     def test_is_api_error(self):
         with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
             timechimp.api.customers.update({})
 
+    @pytest.mark.skipif(not TestGetById.customer, reason="no customer found")
+    def test_is_dict(self):
+        assert(isinstance(TestUpdate.customer, dict))
+
+    @pytest.mark.skipif(not TestGetById.customer, reason="no customer found")
     def test_is_same_id(self):
-        assert(TestGetAll.customers[0]["id"] == TestUpdate.customer["id"])
+        assert(TestGetById.customer["id"] == TestUpdate.customer["id"])
 
 
 class TestDelete:

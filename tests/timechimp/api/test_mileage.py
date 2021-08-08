@@ -42,7 +42,6 @@ class TestGetByProject:
     def test_is_list(self):
         assert(isinstance(TestGetByProject.mileages, list))
 
-    @pytest.mark.skip(reason="Not associated to a project by default")
     def test_is_same_id(self):
         assert(all(project["projectId"] == TestCreate.mileage["projectId"]
                    for project in TestGetByProject.mileages))
@@ -107,15 +106,16 @@ class TestChangeStatusInternal:
 
 
 class TestChangeStatusExternal:
-    """ does not seem to work
-    registrations = timechimp.api.mileage.change_status_external(
-        registration_ids=[TestCreate.mileage["id"]],
-        approval_status=timechimp.enum.ApprovalStatus.REJECTED,
-        name="test",
-        message="test",
-        to_json=True)
-    """
     registrations = {}
+    try:
+        registrations = timechimp.api.mileage.change_status_external(
+            registration_ids=[TestCreate.mileage["id"]],
+            approval_status=timechimp.enum.ApprovalStatus.REJECTED,
+            name="test",
+            message="test",
+            to_json=True)
+    except timechimp.exceptions.TimeChimpAPIError:
+        logger.error("change status external endpoint not working")
 
     def test_is_api_error(self):
         with pytest.raises(timechimp.exceptions.TimeChimpAPIError):
@@ -125,12 +125,14 @@ class TestChangeStatusExternal:
                 name="test",
                 message="test")
 
-    @pytest.mark.skip(reason="Not able to change status external")
     def test_is_list(self):
+        if not TestChangeStatusExternal.registrations:
+            pytest.mark.xfail("change status external not working")
         assert(isinstance(TestGetByProject.mileages, list))
 
-    @pytest.mark.skip(reason="Not able to change status external")
     def test_is_same_id(self):
+        if not TestChangeStatusExternal.registrations:
+            pytest.mark.xfail("change status external not working")
         assert(all(registration == TestCreate.mileage["id"]
                    for registration in TestChangeStatusExternal.registrations))
 

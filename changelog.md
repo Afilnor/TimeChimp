@@ -1,3 +1,6 @@
+## 0.0.25 (August 2021)
+- cleanup tests
+
 ## 0.0.24 (August 2021)
 - cleanup readme and setup.py
 
