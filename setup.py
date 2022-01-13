@@ -1,8 +1,6 @@
 from setuptools import setup, find_packages
 from os import path
 
-from timechimp._version import __version__
-
 this_directory = path.abspath(path.dirname(__file__))
 
 REQUIREMENTS = [
@@ -31,5 +29,5 @@ setup(
     platforms=['any'],
     python_requires='>=3.6',
     url='https://github.com/Afilnor/TimeChimp',
-    version=__version__,
+    version="0.0.26",
 )
